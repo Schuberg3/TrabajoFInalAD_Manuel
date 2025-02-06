@@ -1,0 +1,29 @@
+@import url(carousel.css);
+@import url(header.css);
+
+:root {
+
+    --color-red: #FFADAD;     /* Rojo pastel */
+    --color-orange: #FFD6A5;  /* Naranja pastel */
+    --color-yellow: #FDFFB6;  /* Amarillo pastel */
+    --color-green: #CAFFBF;   /* Verde pastel */
+    --color-blue: #9BF6FF;    /* Azul pastel */
+    --color-indigo: #A0C4FF;  /* Índigo pastel */
+    --color-violet: #BDB2FF;  /* Violeta pastel */
+    --color-pink: #FFC6FF;    /* Rosa pastel */
+
+    --random-color: var(--color-blue);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: beige;
+}
