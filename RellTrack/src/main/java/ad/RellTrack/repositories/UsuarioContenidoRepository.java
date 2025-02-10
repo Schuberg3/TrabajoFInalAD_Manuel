@@ -1,9 +1,9 @@
 package ad.RellTrack.repositories;
 
-import ad.RellTrack.models.UsuarioCategoria;
+import ad.RellTrack.models.UsuarioContenido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsuarioCategoriaRepository extends JpaRepository<UsuarioCategoria, Integer> {
+public interface UsuarioContenidoRepository extends JpaRepository<UsuarioContenido, Integer> {
 }

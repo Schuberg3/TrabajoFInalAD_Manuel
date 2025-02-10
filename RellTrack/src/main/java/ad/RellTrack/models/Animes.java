@@ -4,15 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "animes")
-public class Animes {
+@PrimaryKeyJoinColumn(name = "id")
+public class Animes extends Contenido {
 
     @Id
     private Integer id;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private Contenido content;
 
     @ManyToOne
     @JoinColumn(name = "studio_id")
@@ -28,14 +24,6 @@ public class Animes {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Contenido getContent() {
-        return content;
-    }
-
-    public void setContent(Contenido content) {
-        this.content = content;
     }
 
     public Studios getStudio() {

@@ -4,16 +4,12 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "series")
-public class Series {
+@PrimaryKeyJoinColumn(name = "id")
+public class Series extends Contenido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private Contenido content;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
@@ -29,14 +25,6 @@ public class Series {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Contenido getContent() {
-        return content;
-    }
-
-    public void setContent(Contenido content) {
-        this.content = content;
     }
 
     public Directores getDirector() {

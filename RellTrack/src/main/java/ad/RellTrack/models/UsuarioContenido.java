@@ -4,30 +4,32 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_catalog")
-public class UsuarioCategoria {
+public class UsuarioContenido {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @EmbeddedId
+    private UsuarioContenidoId id;
+
     private int rating;
 
     @ManyToOne
+    @MapsId("userId")
     @JoinColumn(name = "user_id")
     private Usuario user;
 
     @ManyToOne
+    @MapsId("contentId")
     @JoinColumn(name = "content_id")
     private Contenido content;
 
     // Constructores
-    public UsuarioCategoria() {    }
+    public UsuarioContenido() {    }
 
     // Getters y Setters
-    public Integer getId() {
+    public UsuarioContenidoId getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UsuarioContenidoId id) {
         this.id = id;
     }
 

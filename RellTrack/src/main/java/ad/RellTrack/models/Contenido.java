@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "content")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Contenido {
 
     @Id
@@ -14,6 +15,7 @@ public class Contenido {
     private Integer id;
     private String title;
     private Date releaseDate;
+    @Column(name = "img_url")
     private String imgUrl;
 
     @OneToMany(mappedBy = "content", cascade = CascadeType.ALL)

@@ -17,7 +17,7 @@ public class Usuario {
     private String userType;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UsuarioCategoria> userCatalog;
+    private List<UsuarioContenido> userCatalog;
 
     // Constructores
     public Usuario() {    }
@@ -63,11 +63,11 @@ public class Usuario {
         this.userType = userType;
     }
 
-    public List<UsuarioCategoria> getUserCatalog() {
+    public List<UsuarioContenido> getUserCatalog() {
         return userCatalog;
     }
 
-    public void setUserCatalog(List<UsuarioCategoria> userCatalog) {
+    public void setUserCatalog(List<UsuarioContenido> userCatalog) {
         this.userCatalog = userCatalog;
     }
 }
