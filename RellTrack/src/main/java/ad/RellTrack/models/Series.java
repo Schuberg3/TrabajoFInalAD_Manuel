@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Series {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToOne
