@@ -29,4 +29,8 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
+    public Usuario obtenerPorNombre(String nombre) {
+        return usuarioRepository.findUsuarioByNombreIgnoreCase(nombre);
+    }
+
 }

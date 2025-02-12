@@ -2,13 +2,14 @@ package ad.RellTrack.controllers;
 
 import ad.RellTrack.models.UsuarioContenido;
 import ad.RellTrack.services.UsuarioContenidoService;
+import ad.RellTrack.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/usuarioscategoria")
+@RequestMapping("api/uContenido")
 public class UsuarioContenidoController {
 
     @Autowired

@@ -1,5 +1,6 @@
 package ad.RellTrack.services;
 
+import ad.RellTrack.models.Usuario;
 import ad.RellTrack.models.UsuarioContenido;
 import ad.RellTrack.repositories.UsuarioContenidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

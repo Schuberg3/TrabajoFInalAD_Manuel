@@ -24,6 +24,11 @@ public class UsuarioController {
         return usuarioService.obtenerPorId(id);
     }
 
+    @GetMapping("/{nombre}")
+    public Usuario obtenerPorNombre(@PathVariable String nombre) {
+        return usuarioService.obtenerPorNombre(nombre);
+    }
+
     @PostMapping
     public Usuario guardar(@RequestBody Usuario usuario) {
         return usuarioService.guardar(usuario);
