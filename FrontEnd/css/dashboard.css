@@ -1,0 +1,51 @@
+/* 
+Estilos del header
+*/
+
+header {
+    height: 60px;
+    width: 100svw;
+}
+
+.header-container {
+    height: 100%;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+}
+
+.link-list {
+    display: flex;
+    gap: 2em;
+}
+
+.link-item {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.user-info button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-image: url("../public/gear.svg");
+    background-color: var(--btn-primary);
+    border: none;
+    cursor: pointer;
+}
+
+.active {
+    font-weight: bolder;
+}
