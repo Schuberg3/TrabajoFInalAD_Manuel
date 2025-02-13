@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface UsuarioContenidoRepository extends JpaRepository<UsuarioContenido, Integer> {
-
+    List<UsuarioContenido> findByUser(Usuario usuario);
 }

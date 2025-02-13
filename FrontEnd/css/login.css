@@ -14,6 +14,10 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
+.register .login-container {
+    height: 500px;
+}
+
 .login-container h2 {
     height: 20%;
     width: 100%;
@@ -104,6 +108,22 @@
     color: #fff;
     font-size: 2em;
     letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.go-home {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    left: 420px;
+    background-color: transparent;
+    backdrop-filter: blur(18px);
+    border-width: 10px;
+    outline: none;
+    border-color: var(--btn-primary);
+    color: #fff;
+    font-size: 1.8em;
     cursor: pointer;
 }
 

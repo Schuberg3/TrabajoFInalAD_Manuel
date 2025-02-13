@@ -5,7 +5,9 @@ import ad.RellTrack.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -25,12 +27,25 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public boolean existePorUsername(String username) {
+        return usuarioRepository.findByUsernameIgnoreCase(username).isPresent();
+    }
+
+    public boolean existePorEmail(String email) {
+        return usuarioRepository.findByEmailIgnoreCase(email).isPresent();
+    }
+
     public void borrarPorId(Integer id) {
         usuarioRepository.deleteById(id);
     }
 
-    public Usuario obtenerPorNombre(String nombre) {
-        return usuarioRepository.findUsuarioByNombreIgnoreCase(nombre);
+    public Optional<Usuario> obtenerPorUsername(String username) {
+        return usuarioRepository.findByUsernameIgnoreCase(username);
     }
+
+    public Optional<Usuario> obtenerPorEmail(String email) {
+        return usuarioRepository.findByEmailIgnoreCase(email);
+    }
+
 
 }

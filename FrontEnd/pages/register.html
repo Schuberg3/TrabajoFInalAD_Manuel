@@ -14,32 +14,35 @@
 
 </head>
 
-<body class="flex-center">
+<body class="flex-center register">
     <div class="login flex-center">
         <div class="login-container flex-center">
             <button class="go-home" onclick="window.location.href='../index.html'">Home</button>
-            <h2 class="flex-center">SIGN IN</h2>
-            <form action="" class="login-form flex-center">
+            <h2 class="flex-center">REGISTER</h2>
+            <form id="registerForm" class="login-form flex-center">
+                <div class="input-container">
+                    <input type="text" id="email" placeholder="" required>
+                    <label for="email">Email</label>
+                </div>
                 <div class="input-container">
                     <input type="text" id="username" placeholder="" required>
                     <label for="username">Usuario</label>
                 </div>
                 <div class="input-container">
-                    <input type="password" id="password" placeholder="">
+                    <input type="password" id="password" placeholder="" required>
                     <label for="password">Contraseña</label>
                 </div>
                 <div class="form-extras">
-                    <p>Forgot password?</p>
-                    <button onclick="window.location.href='register.html'">Register now</button>
+                    <p></p><button onclick="window.location.href='login.html'">New memeber ?</button>
                 </div>
-                <button type="submit" id="loginButton">Ingresar</button>
-                <p id="loginError" class="error"></p> <!-- Mensaje de error si el usuario no existe -->
+                <button type="submit">Registrarse</button>
+                <p id="loginError" class="error"></p>
             </form>
         </div>
     </div>
-
+    
     <!-- Scripts JS -->
-     <script src="../js/login.js"></script>
+    <script src="../js/register.js"></script>   
 
 </body>
 
