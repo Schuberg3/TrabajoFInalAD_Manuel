@@ -32,11 +32,8 @@ public class UsuarioContenidoService {
         usuarioContenidoRepository.deleteById(id);
     }
 
-    public List<Contenido> obtenerPorUsuario(Usuario usuario) {
-        return usuarioContenidoRepository.findByUser(usuario)
-                .stream()
-                .map(UsuarioContenido::getContent)
-                .collect(Collectors.toList());
+    public List<UsuarioContenido> obtenerPorUsuario(Usuario user) {
+        return usuarioContenidoRepository.findByUser(user);
     }
 
 }

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --background-main: #282c34;
+    --btn-primary: #0d6efd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: #121212;
+}

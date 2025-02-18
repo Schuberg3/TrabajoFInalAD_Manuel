@@ -1,0 +1,38 @@
+<div class="user-catalog" *ngIf="userCatalog.length > 0; else noContent">
+    <div class="catalog-header">
+        <h1>Mi Contenido</h1>
+        <a  class="">Añadir contenido</a>
+    </div>
+    <div class="cards"> 
+        <div class="card" *ngFor="let item of userCatalog">
+            <div class="left">
+                <img [src]="'/img/portada/' + item.content.imgUrl + '.jpg'" [alt]="item.content.title" />
+            </div> 
+            <div class="right">
+                <div class="titulo-puntuacion">
+                    <label>Información</label>
+                    <hr>
+                    <h3>{{ item.content.title }}</h3>
+                    <h4>{{ item.rating }} / 10 ★</h4>
+                </div>
+                <div class="generos">
+                    <label>Géneros</label>
+                    <hr>
+                    <p *ngFor="let genre of item.content.genres.slice(0,2)">{{ genre.name }}</p>
+                </div>                
+                <div class="personal">
+                    <label>Estudio / Director</label>
+                    <hr>
+                    <p *ngIf="item.content.studio">{{ item.content.studio.name }}</p>
+                    <p *ngIf="item.content.director">{{ item.content.director.name }}</p>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div> 
+
+<!-- Definir el ng-template para el caso en que userCatalog esté vacío -->
+<ng-template #noContent>
+    <p>No tienes contenido agregado.</p>
+</ng-template>
+

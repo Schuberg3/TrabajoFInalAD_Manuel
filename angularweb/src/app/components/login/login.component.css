@@ -1,0 +1,126 @@
+.login {
+    height: 100svh;
+    width: 100svw;
+    background-image: url(/form-bg.webp);
+}
+
+.login-container {
+    height: 400px;
+    width: 400px;
+    flex-direction: column;
+    border-radius: 24px;
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.login-form {
+    height: 80%;
+    width: 100%;
+    padding: 1em;
+    flex-direction: column;
+    gap: .4em;
+}
+
+.login-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login-nav h1 {
+    height: 100%;
+    width: 80%;
+    text-align: center;
+    font-size: 4em;
+    color: var(--btn-primary);
+}
+
+.login-nav a {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #fff;
+
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: 5px;
+    font-size: 12px;
+    color: #fff; /* Cambia de color al estar activo */
+}
+
+.login-form input {
+    height: 60px;
+    width: 100%;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    outline: none;
+    background-color: transparent;
+}
+
+.login-form input::placeholder {
+    color: #fff;
+    font-size: .8em;
+}
+
+.login-form button[type="submit"] {
+    margin-top: auto;
+    height: 60px;
+    width: 100%;
+    background-color: var(--btn-primary);
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.form-extras {
+    width: 100%;
+    margin-block: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-extras * {
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+.form-extras p {
+    color: #fff;
+}
+
+.form-extras button {
+    border: none;
+    outline: none;
+    color: var(--btn-primary);
+    background-color: transparent;
+    letter-spacing: 1px;
+    cursor: pointer;
+}

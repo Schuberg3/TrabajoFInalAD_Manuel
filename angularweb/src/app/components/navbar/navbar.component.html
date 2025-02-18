@@ -1,0 +1,17 @@
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html"><img src="/logo.svg" alt="Logo RellTrack"></a>
+        </div>
+        <nav class="link-list">
+            <a routerLinkActive="active" [routerLink]="['/dashboard/welcome']" class="link-item active">Home</a>
+            <a routerLinkActive="active" [routerLink]="['/dashboard/series']" class="link-item">Series</a>
+            <a routerLinkActive="active" [routerLink]="['/dashboard/pelis']" class="link-item">Peliculas</a>
+            <a routerLinkActive="active" [routerLink]="['/dashboard/animes']" class="link-item">Animes</a>
+        </nav>
+        <div class="user-info">
+            <button (click)="logout()">Log out</button>
+        </div>
+    </div>
+</header>
+
