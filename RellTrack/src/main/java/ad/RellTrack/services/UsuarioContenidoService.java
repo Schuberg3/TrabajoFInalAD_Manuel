@@ -3,6 +3,7 @@ package ad.RellTrack.services;
 import ad.RellTrack.models.Contenido;
 import ad.RellTrack.models.Usuario;
 import ad.RellTrack.models.UsuarioContenido;
+import ad.RellTrack.models.UsuarioContenidoId;
 import ad.RellTrack.repositories.UsuarioContenidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,10 @@ public class UsuarioContenidoService {
         return usuarioContenidoRepository.save(usuarioContenido);
     }
 
-    public void borrarPorId(Integer id) {
-        usuarioContenidoRepository.deleteById(id);
+    public void eliminarPorId(Integer userId, Integer contentId) {
+        usuarioContenidoRepository.deleteByUserIdAndContentId(userId, contentId);
     }
+
 
     public List<UsuarioContenido> obtenerPorUsuario(Usuario user) {
         return usuarioContenidoRepository.findByUser(user);

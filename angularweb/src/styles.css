@@ -18,6 +18,7 @@
     align-items: center;
 }
 
-body {
-    background-color: #121212;
+img {
+    height: 370px;
+    width: 260px;
 }

@@ -1,10 +1,11 @@
 package ad.RellTrack.controllers;
 
-import ad.RellTrack.models.Contenido;
 import ad.RellTrack.models.Usuario;
 import ad.RellTrack.models.UsuarioContenido;
+import ad.RellTrack.models.UsuarioContenidoId;
 import ad.RellTrack.services.UsuarioContenidoService;
 import ad.RellTrack.services.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
 @RestController
 @RequestMapping("api/uContenido")
 public class UsuarioContenidoController {
@@ -26,6 +28,7 @@ public class UsuarioContenidoController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Operation(summary = "hace esto", description = "descripcion")
     @GetMapping
     public List<UsuarioContenido> obtenerTodos() {
         return usuarioContenidoService.obtenerTodos();
@@ -68,9 +71,10 @@ public class UsuarioContenidoController {
         return usuarioContenidoService.guardar(usuarioContenido);
     }
 
-    @DeleteMapping("/{id}")
-    public void borrar(@PathVariable Integer id) {
-        usuarioContenidoService.borrarPorId(id);
+    @DeleteMapping
+    public ResponseEntity<?> eliminarDelCatalogo(@RequestParam Integer userId, @RequestParam Integer contentId) {
+        usuarioContenidoService.eliminarPorId(userId, contentId);
+        return ResponseEntity.ok().build();
     }
 
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+<h1 id="home">Panel de Administración</h1>
+<a href="http://localhost:4200/dashboard/welcome" class="dashboard-link">Volver al Dashboard</a>
+<a href="#pelis">Películas</a>
+<a href="#series">Series</a>
+<a href="#animes">Animes</a>
+
+<div class="grid-container">
+<div class="grid-item">
+<h2 id="pelis">Películas</h2>
+    <a href="#home">Volver arriba</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="pelicula : ${peliculas}">
+        <td th:text="${pelicula.id}"></td>
+        <td th:text="${pelicula.title}"></td>
+        <td>
+            <a th:href="@{/admin/contenido/editar/{id}(id=${pelicula.id})}">Editar</a>
+            <a th:href="@{/admin/contenido/eliminar/{id}(id=${pelicula.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</div>
+
+<div class="grid-item">
+    <h2 id="series">Series</h2>
+    <a href="#home">Volver arriba</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="serie : ${series}">
+            <td th:text="${serie.id}"></td>
+            <td th:text="${serie.title}"></td>
+            <td>
+                <a th:href="@{/admin/contenido/editar/{id}(id=${serie.id})}">Editar</a>
+                <a th:href="@{/admin/contenido/eliminar/{id}(id=${serie.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="grid-item">
+<h2 id="animes">Animes</h2>
+    <a href="#home">Volver arriba</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="anime : ${animes}">
+        <td th:text="${anime.id}"></td>
+        <td th:text="${anime.title}"></td>
+        <td>
+            <a th:href="@{/admin/contenido/editar/{id}(id=${anime.id})}">Editar</a>
+            <a th:href="@{/admin/contenido/eliminar/{id}(id=${anime.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<h2>Añadir Contenido</h2>
+<form action="/admin/contenido/agregar/pelicula" method="post">
+    <input type="text" name="title" placeholder="Título de la película" required>
+    <button type="submit">Añadir Película</button>
+</form>
+
+<form action="/admin/contenido/agregar/serie" method="post">
+    <input type="text" name="title" placeholder="Título de la serie" required>
+    <button type="submit">Añadir Serie</button>
+</form>
+
+<form action="/admin/contenido/agregar/anime" method="post">
+    <input type="text" name="title" placeholder="Título del anime" required>
+    <button type="submit">Añadir Anime</button>
+</form>
+</body>
+</html>

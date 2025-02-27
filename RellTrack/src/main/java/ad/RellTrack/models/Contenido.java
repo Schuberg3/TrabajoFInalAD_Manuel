@@ -1,5 +1,6 @@
 package ad.RellTrack.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Contenido {
 
+    @Schema(description = "Esto es una descripción", example = "5")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

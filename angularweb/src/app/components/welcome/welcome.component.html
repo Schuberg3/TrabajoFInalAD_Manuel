@@ -1,13 +1,62 @@
 <div class="user-catalog" *ngIf="userCatalog.length > 0; else noContent">
     <div class="catalog-header">
         <h1>Mi Contenido</h1>
-        <a  class="">Añadir contenido</a>
+
+        <div class="btn-crud">
+            <button class="agregar" (click)="abrirFormularioAgregar()">Añadir</button>
+            <!-- <button class="eliminar" (click)="eliminarContenido()">Eliminar</button>
+            <button class="modificar" (click)="modificarContenido()">Modificar</button> -->
+        </div>
     </div>
-    <div class="cards"> 
+    <hr>
+
+
+    <!-- Modal para agregar contenido -->
+    <div *ngIf="mostrarFormulario" class="modal">
+        <div class="modal-content">
+            <span class="close" (click)="cerrarFormularioAgregar()">&times;</span>
+            <h2>Agregar contenido a tu catálogo</h2>
+
+            <form [formGroup]="formAgregar" (ngSubmit)="agregarContenido()">
+
+                <div class="outer">
+                    <!-- Selección del tipo de contenido -->
+                    <label for="tipo">Selecciona el contenido:</label>
+                    <select id="tipo" formControlName="tipo" (change)="obtenerListaContenido()">
+                        <option value="">Selecciona una opción</option>
+                        <option value="anime">Anime</option>
+                        <option value="serie">Serie</option>
+                        <option value="pelicula">Película</option>
+                    </select>
+                </div>
+
+                <!-- Selección del contenido (Se muestra solo cuando hay contenido disponible) -->
+                <div *ngIf="listaContenido.length > 0">
+                    <div class="outer">
+                        <label for="contenido">Selecciona un contenido:</label>
+                        <select id="contenido" formControlName="contenido" required>
+                            <option *ngFor="let item of listaContenido" [value]="item.id">{{ item.title }}</option>
+                        </select>
+                    </div>
+                    <div class="outer">
+                        <!-- Puntuación -->
+                        <label for="rating">Puntuación:</label>
+                        <input id="rating" type="number" formControlName="rating" min="1" max="10" required />
+
+                    </div>
+                    <button class="agregar-btn" type="submit" [disabled]="formAgregar.invalid">Agregar</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="cards">
         <div class="card" *ngFor="let item of userCatalog">
             <div class="left">
                 <img [src]="'/img/portada/' + item.content.imgUrl + '.jpg'" [alt]="item.content.title" />
-            </div> 
+            </div>
             <div class="right">
                 <div class="titulo-puntuacion">
                     <label>Información</label>
@@ -19,20 +68,20 @@
                     <label>Géneros</label>
                     <hr>
                     <p *ngFor="let genre of item.content.genres.slice(0,2)">{{ genre.name }}</p>
-                </div>                
+                </div>
                 <div class="personal">
                     <label>Estudio / Director</label>
                     <hr>
                     <p *ngIf="item.content.studio">{{ item.content.studio.name }}</p>
                     <p *ngIf="item.content.director">{{ item.content.director.name }}</p>
                 </div>
+                <button class="delete-btn" (click)="confirmDelete(item.id.userId, item.id.contentId)">X</button>
             </div>
-        </div> 
-    </div> 
-</div> 
+        </div>
+    </div>
+</div>
 
 <!-- Definir el ng-template para el caso en que userCatalog esté vacío -->
 <ng-template #noContent>
     <p>No tienes contenido agregado.</p>
 </ng-template>
-

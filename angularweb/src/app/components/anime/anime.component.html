@@ -1,1 +1,23 @@
-<p>anime works!</p>
+<div class="search">
+  <input type="text" [(ngModel)]="searchTerm" (input)="buscarAnimes()" placeholder="Buscar anime..."
+  class="search-box" />
+</div>
+
+<div class="content-grid">
+  <div class="card" *ngFor="let anime of animesFiltrados">
+    <div class="left">
+      <img [src]="'/img/portada/' + anime.imgUrl + '.jpg'" [alt]="anime.title" />
+    </div>
+    <div class="right">
+      <div class="right-content">
+        <h3>{{ anime.title }}</h3>
+
+        <div class="generos">
+          <p *ngFor="let genre of anime.genres.slice(0,2)">{{ genre.name }}</p>
+        </div>
+
+        <button class="agregar-btn" (click)="agregarACatalogo(anime.id)">Agregar a catálogo</button>
+      </div>
+    </div>
+  </div>
+</div>

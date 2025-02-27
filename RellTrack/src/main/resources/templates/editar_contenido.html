@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Contenido</title>
+    <link rel="stylesheet" href="/editar_contenido.css">
+</head>
+<body>
+<h1>Editar Contenido</h1>
+
+<form action="/admin/contenido/editar" method="post">
+    <input type="hidden" name="id" th:value="${contenido.id}">
+
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" th:value="${contenido.title}" required>
+
+    <label for="release_date">Fecha de Estreno:</label>
+    <input type="date" id="release_date" name="release_date" th:value="${contenido.releaseDate}" required>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<a href="/admin/contenido">Volver al Panel de Administración</a>
+</body>
+</html>

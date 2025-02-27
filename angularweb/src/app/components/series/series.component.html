@@ -1,1 +1,23 @@
-<p>series works!</p>
+<div class="search">
+    <input type="text" [(ngModel)]="searchTerm" (input)="buscarSeries()" placeholder="Buscar serie..."
+        class="search-box" />
+</div>
+
+<div class="content-grid">
+    <div class="card" *ngFor="let serie of seriesFiltradas">
+        <div class="left">
+            <img [src]="'/img/portada/' + serie.imgUrl + '.jpg'" [alt]="serie.title" />
+        </div>
+        <div class="right">
+            <div class="right-content">
+                <h3>{{ serie.title }}</h3>
+
+                <div class="generos">
+                    <p *ngFor="let genre of serie.genres.slice(0,2)">{{ genre.name }}</p>
+                </div>
+
+                <button class="agregar-btn" (click)="agregarACatalogo(serie.id)">Agregar a catálogo</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,23 @@
-<p>peliculas works!</p>
+<div class="search">
+  <input type="text" [(ngModel)]="searchTerm" (input)="buscarPeliculas()" placeholder="Buscar película..."
+  class="search-box" />
+</div>
+
+<div class="content-grid">
+  <div class="card" *ngFor="let peli of peliculasFiltradas">
+    <div class="left">
+      <img [src]="'/img/portada/' + peli.imgUrl + '.jpg'" [alt]="peli.title" />
+    </div>
+    <div class="right">
+      <div class="right-content">
+        <h3>{{ peli.title }}</h3>
+
+        <div class="generos">
+          <p *ngFor="let genre of peli.genres.slice(0,2)">{{ genre.name }}</p>
+        </div>
+
+        <button class="agregar-btn" (click)="agregarACatalogo(peli.id)">Agregar a catálogo</button>
+      </div>
+    </div>
+  </div>
+</div>

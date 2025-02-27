@@ -1,6 +1,10 @@
 package ad.RellTrack.services;
 
+import ad.RellTrack.models.Contenido;
 import ad.RellTrack.models.Usuario;
+import ad.RellTrack.models.UsuarioContenido;
+import ad.RellTrack.models.UsuarioContenidoId;
+import ad.RellTrack.repositories.UsuarioContenidoRepository;
 import ad.RellTrack.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +18,9 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private UsuarioContenidoRepository usuarioContenidoRepository;
 
     public List<Usuario> obtenerTodos() {
         return usuarioRepository.findAll();
@@ -40,11 +47,25 @@ public class UsuarioService {
     }
 
     public Optional<Usuario> obtenerPorUsername(String username) {
-        return usuarioRepository.findByUsernameIgnoreCase(username);
+        return Optional.ofNullable(usuarioRepository.findByUsername(username));
     }
 
     public Optional<Usuario> obtenerPorEmail(String email) {
         return usuarioRepository.findByEmailIgnoreCase(email);
+    }
+
+    public boolean contenidoYaAgregado(Usuario usuario, Contenido contenido) {
+        return usuarioContenidoRepository.existsByUserAndContent(usuario, contenido);
+    }
+
+    public void agregarContenido(Usuario usuario, Contenido contenido, int rating) {
+        UsuarioContenido nuevo = new UsuarioContenido();
+        nuevo.setId(new UsuarioContenidoId(usuario.getId(), contenido.getId()));
+        nuevo.setUser(usuario);
+        nuevo.setContent(contenido);
+        nuevo.setRating(rating);
+
+        usuarioContenidoRepository.save(nuevo);
     }
 
 

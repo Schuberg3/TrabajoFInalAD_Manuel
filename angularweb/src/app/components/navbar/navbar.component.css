@@ -16,11 +16,6 @@ header {
     align-items: center;
 }
 
-.logo {
-    height: 40px;
-    width: 40px;
-}
-
 .logo img {
     height: 40px;
     width: 40px;
@@ -34,6 +29,10 @@ header {
 .link-item {
     font-size: 1.2em;
     letter-spacing: 1px;
+    color: var(--btn-primary);
+    font-weight: bold;
+    display: grid;
+    cursor: pointer;
 }
 
 .user-info button {
@@ -50,5 +49,6 @@ header {
 }
 
 .active {
+    color: #000;
     font-weight: bolder;
 }

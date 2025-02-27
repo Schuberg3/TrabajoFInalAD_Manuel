@@ -8,15 +8,10 @@
 }
 
 .card {
-    height: 300px;
+    height: 370px;
+    width: 260px;
     display: flex;
     border-radius: 12px;
-    box-shadow: 0 0 4px #fff;
-}
-
-.left img {
-    height: 300px;
-    width: auto;
 }
 
 .right {
@@ -67,6 +62,135 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2em auto;
+    margin: 0 auto;
+    padding: 1em;
     
+}
+
+.btn-crud {
+    display: flex;
+    gap: 1em;
+}
+
+.btn-crud button {
+    height: 30px;
+    width: 100px;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 14px;
+    transition: all 300ms ease-out;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btn-crud button:hover {
+    scale: 1.1;
+}
+
+.catalog-header .agregar {
+    background-color: #27AE60;
+}
+
+.catalog-header .eliminar {
+    background-color: #E74C3C;
+}
+
+.catalog-header .modificar {
+    background-color: #F1C40F;
+}
+
+/* 
+Modal
+*/
+.modal {
+    width: 100svw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cecece;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.close {
+    padding-inline: 8px;
+    font-size: 2em;
+    cursor: pointer;
+    background-color: #3e3e3e;
+    color: #fff;
+    border-radius: 12px;
+    transition: all 300ms ease-out;
+}
+
+.close:hover {
+    scale: 1.1;
+    font-weight: bolder;
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+.outer {
+    width: 400px;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+form label {
+    font-size: 1.2em;
+}
+
+
+form select,
+#rating {
+    width: 150px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.agregar-btn {
+    outline: none;
+    border: none;
+    background-color: var(--btn-primary);
+    color: #fff;
+    height: 30px;
+    width: 100px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+}
+
+.agregar-btn:hover {
+    scale: 1.2;
+}
+
+.delete-btn {
+    background-color: red;
+    color: #fff;
+    font-size: 18px;
+    padding: .5rem 2rem;
+    border-radius: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-top: 12px;
+    transition: all .2s ease-out;
+}
+
+.delete-btn:hover {
+    font-weight: bold;
 }
