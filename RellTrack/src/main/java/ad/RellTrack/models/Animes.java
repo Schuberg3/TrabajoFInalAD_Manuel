@@ -1,5 +1,6 @@
 package ad.RellTrack.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,11 +8,13 @@ import jakarta.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 public class Animes extends Contenido {
 
+    @Schema(description = "Valor numérico que representa el ID", example = "5")
     @Id
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "studio_id")
+    @Schema(description = "Valor de texto que representa el estudio donde se ha animado dicho anime", example = "MAPPA")
     private Studios studio;
 
     // Constructores

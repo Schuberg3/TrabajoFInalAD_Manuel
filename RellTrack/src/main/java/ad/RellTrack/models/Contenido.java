@@ -11,16 +11,20 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Contenido {
 
-    @Schema(description = "Esto es una descripción", example = "5")
+    @Schema(description = "Valor numérico que representa el ID", example = "5")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Schema(description = "Valor de texto que represetna el título del contenido", example = "Lo que el viento se llevó")
     private String title;
+    @Schema(description = "Valor de fecha que representa la fecha en la que se estrenó dicho contenido", example = "2012-12-02")
     private Date releaseDate;
     @Column(name = "img_url")
+    @Schema(description = "Valor de texto que representa el nombre de la imagen de portada del contenido", example = "imagen-01.jpg")
     private String imgUrl;
 
     @OneToMany(mappedBy = "content", cascade = CascadeType.ALL)
+    @Schema(description = "Lista de temporadas que tiene una serie (No implementado)", example = "5")
     private List<Temporadas> seasons;
 
     @ManyToMany
@@ -29,6 +33,7 @@ public class Contenido {
             joinColumns = @JoinColumn(name = "content_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
+    @Schema(description = "Lista de géneros de los que vá dicho contenido", example = "['comedia', 'romance', 'accion']")
     private List<Generos> genres;
 
     @ManyToMany
@@ -37,6 +42,7 @@ public class Contenido {
             joinColumns = @JoinColumn(name = "content_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
+    @Schema(description = "Lista de Actores que participan en el contenido", example = "['Tom Holland', 'Dwayn Jonson']")
     private List<Actores> actors;
 
     // Constructores

@@ -28,7 +28,7 @@ public class UsuarioContenidoController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Operation(summary = "hace esto", description = "descripcion")
+    @Operation(summary = "Retorna una lista con todo el contenido del usuario", description = "descripcion")
     @GetMapping
     public List<UsuarioContenido> obtenerTodos() {
         return usuarioContenidoService.obtenerTodos();

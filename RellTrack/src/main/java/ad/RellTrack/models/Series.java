@@ -1,5 +1,6 @@
 package ad.RellTrack.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,12 +8,14 @@ import jakarta.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 public class Series extends Contenido {
 
+    @Schema(description = "Valor numérico que representa el ID", example = "5")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
+    @Schema(description = "Valor que representa un director", example = "Peter Jackson")
     private Directores director;
 
     // Constructores

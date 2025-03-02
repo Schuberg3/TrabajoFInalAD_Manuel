@@ -1,14 +1,17 @@
 package ad.RellTrack.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "genres")
 public class Generos {
 
+    @Schema(description = "Valor numérico que representa el ID", example = "5")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Schema(description = "Valor de texto que representa el nombre de un Género", example = "Romance")
     private String name;
 
     // Constructores
